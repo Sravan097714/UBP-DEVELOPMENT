@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <ReportParameters>
+    <ReportParameter Name="DocumentNo_VatEntryCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>DocumentNo_VatEntryCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>DocumentNo_VatEntryCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Type_VatEntryCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Type_VatEntryCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Type_VatEntryCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Base_VatEntryCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Base_VatEntryCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Base_VatEntryCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Amount_VatEntryCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Amount_VatEntryCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Amount_VatEntryCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="BillToPay_VatEntryCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>BillToPay_VatEntryCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>BillToPay_VatEntryCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="EntrtyNo_VatEntryCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>EntrtyNo_VatEntryCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>EntrtyNo_VatEntryCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="VatDiff_VatEntryCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>VatDiff_VatEntryCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>VatDiff_VatEntryCaption</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="CompanyName">
+          <DataField>CompanyName</DataField>
+        </Field>
+        <Field Name="Filter1_VatEntry">
+          <DataField>Filter1_VatEntry</DataField>
+        </Field>
+        <Field Name="MinVatDifference">
+          <DataField>MinVatDifference</DataField>
+        </Field>
+        <Field Name="MinVatDifferenceFormat">
+          <DataField>MinVatDifferenceFormat</DataField>
+        </Field>
+        <Field Name="MinVatDiffText">
+          <DataField>MinVatDiffText</DataField>
+        </Field>
+        <Field Name="AddCurrAmt_VatEntry">
+          <DataField>AddCurrAmt_VatEntry</DataField>
+        </Field>
+        <Field Name="PostingDate_VatEntry">
+          <DataField>PostingDate_VatEntry</DataField>
+        </Field>
+        <Field Name="DocumentType_VatEntry">
+          <DataField>DocumentType_VatEntry</DataField>
+        </Field>
+        <Field Name="DocumentNo_VatEntry">
+          <DataField>DocumentNo_VatEntry</DataField>
+        </Field>
+        <Field Name="Type_VatEntry">
+          <DataField>Type_VatEntry</DataField>
+        </Field>
+        <Field Name="GenBusPostGrp_VatEntry">
+          <DataField>GenBusPostGrp_VatEntry</DataField>
+        </Field>
+        <Field Name="GenProdPostGrp_VatEntry">
+          <DataField>GenProdPostGrp_VatEntry</DataField>
+        </Field>
+        <Field Name="Base_VatEntry">
+          <DataField>Base_VatEntry</DataField>
+        </Field>
+        <Field Name="Base_VatEntryFormat">
+          <DataField>Base_VatEntryFormat</DataField>
+        </Field>
+        <Field Name="Amount_VatEntry">
+          <DataField>Amount_VatEntry</DataField>
+        </Field>
+        <Field Name="Amount_VatEntryFormat">
+          <DataField>Amount_VatEntryFormat</DataField>
+        </Field>
+        <Field Name="VatCalType_VatEntry">
+          <DataField>VatCalType_VatEntry</DataField>
+        </Field>
+        <Field Name="BillToPay_VatEntry">
+          <DataField>BillToPay_VatEntry</DataField>
+        </Field>
+        <Field Name="Eu3PartyTrade_VatEntry">
+          <DataField>Eu3PartyTrade_VatEntry</DataField>
+        </Field>
+        <Field Name="FormatClosed">
+          <DataField>FormatClosed</DataField>
+        </Field>
+        <Field Name="EntrtyNo_VatEntry">
+          <DataField>EntrtyNo_VatEntry</DataField>
+        </Field>
+        <Field Name="VatDiff_VatEntry">
+          <DataField>VatDiff_VatEntry</DataField>
+        </Field>
+        <Field Name="VatDiff_VatEntryFormat">
+          <DataField>VatDiff_VatEntryFormat</DataField>
+        </Field>
+        <Field Name="VATExceptionsCaption">
+          <DataField>VATExceptionsCaption</DataField>
+        </Field>
+        <Field Name="CurrReportPageNoOCaption">
+          <DataField>CurrReportPageNoOCaption</DataField>
+        </Field>
+        <Field Name="FORMATEU3PartyTradeCap">
+          <DataField>FORMATEU3PartyTradeCap</DataField>
+        </Field>
+        <Field Name="FORMATClosedCaption">
+          <DataField>FORMATClosedCaption</DataField>
+        </Field>
+        <Field Name="VATEntryVATCalcTypeCap">
+          <DataField>VATEntryVATCalcTypeCap</DataField>
+        </Field>
+        <Field Name="GenProdPostingGrpCaption">
+          <DataField>GenProdPostingGrpCaption</DataField>
+        </Field>
+        <Field Name="GenBusPostingGrpCaption">
+          <DataField>GenBusPostingGrpCaption</DataField>
+        </Field>
+        <Field Name="DocumentTypeCaption">
+          <DataField>DocumentTypeCaption</DataField>
+        </Field>
+        <Field Name="PostingDateCaption">
+          <DataField>PostingDateCaption</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>
